@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //untuk mengaktifkan db di controller
-use App\Student;
+use App\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
@@ -15,13 +15,13 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
+        //query builder
         // $mahasiswa = DB::table('students')->get();
         // dump($mahasiswa);
-        //mahasiswa.index = mahasiswa/index
-
         // $mahasiswa = \App\Student::all();
-        $mahasiswa = Student::all();
-        return view('mahasiswa.index',['mahasiswa' => $mahasiswa]);
+        
+        $mahasiswa = Mahasiswa::all(); //mengirim ke model student
+        return view('mahasiswa.index',['mahasiswa' => $mahasiswa]); //mahasiswa.index = mahasiswa/index
     }
 
     /**
