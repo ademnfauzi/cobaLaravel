@@ -15,8 +15,12 @@
                         <p class="card-text">{{ $student->email }}</p>
                         <p class="card-text">{{ $student->jurusan }}</p>
 
-                        <button type="submit" class="btn btn-primary">EDIT</button>
-                        <button type="submit" class="btn btn-danger">HAPUS</button>
+                        <a href="{{ $student->id }}/edit" class="btn btn-info">EDIT</a>
+                        <form action="/students/{{ $student->id }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">HAPUS</button>
+                        </form>
                         <a href="/students" class="card-link">BACK</a>
                     </div>
                     </div>
